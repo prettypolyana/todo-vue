@@ -2,9 +2,24 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>To Do</title>
 </head>
 <body>
+    <div id="app">
+        <h1 class="app__title">To Do by Polyana on Vue</h1>
+        <div class="app__group">
+            <input v-model='newTask' type="text" placeholder="add your goal"/>
+            <button type="button" v-on:click="addNewTask">add</button>
+        </div>
+        <template class="app__items">
+            <ul>
+                <li v-for='(todo, index) in todos' class="app__item">{{todo}}</li>
+                <button type="button" v-on:click="removeTask">X</button>
+            </ul>
+        </template>
+    </div>
+    <script src="./script.js"></script>
 </body>
 </html>
